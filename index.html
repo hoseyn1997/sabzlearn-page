@@ -12,20 +12,28 @@
     <link rel="stylesheet" href="output.css" />
   </head>
   <body class="h-screen bg-gray-100">
-    <div class="bg-white flex items-center justify-between mx-auto rtl">
-      <div class="block lg:hidden mx-auto bg-gray-100 p-3 rounded-full text-gray-400 cursor-pointer aspect-square">
-        <i class="fa-solid fa-bars fa-xl"></i>
-      </div>
-      <div class="flex items-center gap-5 rtl p-6 px-10 mx-auto lg:mx-0">
-        <img
-          src="https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
-          class="h-12 cursor-pointer"
-          alt="سبز لرن"
-          loading="lazy"
-        />
-        <div class="hidden lg:block">
-          <ul class="flex rtl gap-5">
-            <li class="relative group">
+    <div
+      class="overlay fixed w-full h-full top-0 left-0 bg-black/40 z-40 transition-all invisible opacity-0"
+      id="cover-dark-them"
+    ></div>
+    <header>
+      <div class="bg-white flex items-center justify-between mx-auto rtl">
+        <div
+          class="block lg:hidden mx-auto bg-gray-100 p-3 rounded-full text-gray-400 cursor-pointer aspect-square"
+          id="open_mobile_menue"
+        >
+          <i class="fa-solid fa-bars fa-xl"></i>
+        </div>
+        <div class="flex items-center gap-5 rtl p-6 px-10 mx-auto lg:mx-0">
+          <img
+            src="https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
+            class="h-12 cursor-pointer"
+            alt="سبز لرن"
+            loading="lazy"
+          />
+          <div class="hidden lg:block">
+            <ul class="flex rtl gap-5" id="desktop-header-ul">
+              <!-- <li class="relative group">
               <a href="#" class="hover:text-green-400 transition-all">
                 <span>فرانت اند</span>
                 <i class="fa-solid fa-angle-down"></i>
@@ -132,27 +140,92 @@
                   <li>آموزش ویو جی اس</li>
                 </ul>
               </div>
-            </li>
-          </ul>
+            </li> -->
+            </ul>
+          </div>
+        </div>
+        <div
+          class="mobile-menue-container mobile-menue-container_hidden"
+          id="mobile-menue-container"
+        >
+          <div
+            class="flex items-center justify-between border-b border-b-neutral-200 pb-5"
+          >
+            <img
+              src="https://sabzlearn.ir/wp-content/themes/sabzlearn-theme/images/logo.webp"
+              class="h-12 cursor-pointer"
+              alt="سبز لرن"
+              loading="lazy"
+            />
+            <div class="flex gap-3">
+              <svg
+                class="w-7 p-1 rounded-full bg-gray-100"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  fill="#9ca3af"
+                  d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"
+                />
+              </svg>
+              <svg
+                class="w-7 p-1 rounded-full bg-gray-100"
+                id="close_mobile_menue"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 384 512"
+              >
+                <path
+                  fill="#9ca3af"
+                  d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z"
+                />
+              </svg>
+            </div>
+          </div>
+          <form action="sabzlearn.ir">
+            <label
+              for="what-do-you-looking-for"
+              class="relative h-12 mt-6 block"
+            >
+              <input
+                type="text"
+                id="what-do-you-looking-for"
+                class="bg-gray-100 rounded-full text-slate-500 w-56 text-sm pl-12 pr-4 h-full"
+                placeholder="چیو میخوای یاد بگیری؟"
+              />
+              <svg
+                class="absolute left-1 top-3.5 w-5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+              >
+                <path
+                  fill="#9ca3af"
+                  d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"
+                />
+              </svg>
+            </label>
+          </form>
+          <ul class="mobile-menue" id="mobile-menue"></ul>
+        </div>
+        <div class="flex mx-auto lg:mx-20 justify-between items-center gap-2">
+          <div
+            class="bg-gray-100 rounded-full p-3 aspect-square text-gray-400 cursor-pointer"
+          >
+            <i class="fa-regular fa-user fa-xl"></i>
+          </div>
+          <div
+            class="bg-gray-100 rounded-full p-3 aspect-square text-gray-400 cursor-pointer hidden md:block"
+          >
+            <i class="fa-regular fa-moon fa-xl"></i>
+          </div>
+          <div
+            class="bg-gray-100 rounded-full p-3 aspect-square text-gray-400 cursor-pointer hidden md:block"
+          >
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          </div>
         </div>
       </div>
-      <div class="flex mx-auto lg:mx-20 justify-between items-center gap-2">
-        <div
-          class="bg-gray-100 rounded-full p-3 aspect-square text-gray-400 cursor-pointer"
-        >
-          <i class="fa-regular fa-user fa-xl"></i>
-        </div>
-        <div
-          class="bg-gray-100 rounded-full p-3 aspect-square text-gray-400 cursor-pointer hidden md:block"
-        >
-          <i class="fa-regular fa-moon fa-xl"></i>
-        </div>
-        <div
-          class="bg-gray-100 rounded-full p-3 aspect-square text-gray-400 cursor-pointer hidden md:block"
-        >
-          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-        </div>
-      </div>
-    </div>
+    </header>
+
+    <script src="script.js"></script>
   </body>
 </html>

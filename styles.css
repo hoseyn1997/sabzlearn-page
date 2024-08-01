@@ -12,6 +12,28 @@
   .navigation-list > li {
     @apply hover:text-green-500 transition-all cursor-pointer;
   }
+
+  .mobile-menue-container {
+    @apply fixed top-0 right-0 w-64 lg:hidden z-50 bg-white transition-all p-[18px] h-screen overflow-y-auto;
+  }
+  .mobile-menue-container_hidden {
+    @apply -right-64;
+  }
+  .mobile-menue {
+    @apply grid gap-3 mt-3;
+  }
+  .mobile-menue > li {
+    @apply transition-all cursor-pointer flex justify-start flex-col;
+  }
+  .mobile-menue > li > a {
+    @apply hover:text-green-500;
+  }
+  .mobile-menue > li > a > i {
+    @apply float-end;
+  }
+  .mobile-menue-item {
+    @apply bg-gray-100 p-3 gap-5 grid my-3 rounded-xl text-[.8rem];
+  }
 }
 
 .rtl {
